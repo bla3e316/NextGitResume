@@ -1,3 +1,5 @@
+import fetch from 'isomorphic-fetch'
+
 export default class Home extends React.Component {
   handleSubmin = e => {
     e.preventDefault()
@@ -5,6 +7,9 @@ export default class Home extends React.Component {
     const {username} = this.setState
 
     fetch('https://api.github.com/users/${username}')
+      .then(res => res.json())
+      .then(user => this.setState({user}))
+      .catch(err => console.error(err))
   }
 
     render() {
