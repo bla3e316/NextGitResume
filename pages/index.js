@@ -1,6 +1,11 @@
 import fetch from 'isomorphic-fetch'
 
 export default class Home extends React.Component {
+  state = {
+    username: null,
+    user: null
+  }
+
   handleSubmin = e => {
     e.preventDefault()
 
